@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import ProductFilter from "./landingPage/ProductFilter";
-import ProductList from "./landingPage/ProductList";
+import ProductFilter from "./product/ProductFilter";
+import ProductList from "./product/ProductList";
 
 class ProductPage extends Component {
     render() {
