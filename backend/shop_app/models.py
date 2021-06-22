@@ -34,3 +34,20 @@ class Favorite(models.Model):
 
     def __str__(self):
         return f'{self.user.username} - {self.product.name}'
+
+
+class Order(models.Model):
+    order_status = (
+        ('New order', 'New order'),
+        ('Waiting for payment', 'Waiting for payment'),
+        ('Paid', 'Paid'),
+        ('Preparing the order', 'Preparing the order'),
+        ('Waiting for Waybill', 'Waiting for Waybill'),
+        ('Waiting for the courier', 'Waiting for the courier'),
+        ('Sent', 'Sent'),
+        ('Cancel', 'Cancel')
+    )
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    status = models.CharField(max_length=64, choices=order_status, default="New order")
+    product = models.ManyToManyField(Product)
