@@ -8,6 +8,7 @@ import Login from "../user/Login";
 import Register from "../user/Register"
 import Cart from "../Cart"
 import ProductPage from "../product/ProductPage"
+import AdminComponent from "../admin/Admin"
 
 import {Route, Switch, BrowserRouter as Router} from "react-router-dom";
 
@@ -24,6 +25,7 @@ class App extends Component {
             <Route path="/register" component={ Register } />
             <Route path="/cart" component={ Cart } />
             <Route path="/product" component={ ProductPage } />
+            <Route path="/admin" component={ AdminComponent } />
 
           </Switch>
 
