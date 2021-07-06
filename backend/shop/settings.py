@@ -39,7 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop_app',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
+
+# User Model
+AUTH_USER_MODEL = 'shop_app.User'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

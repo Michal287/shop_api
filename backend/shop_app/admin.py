@@ -1,5 +1,27 @@
 from django.contrib import admin
-from .models import Product, Category, Favorite, Image
+from .models import User, Product, Category, Favorite, Image
+from django.contrib.auth.admin import UserAdmin
+
+
+class CustomUserAdmin(UserAdmin):
+    fieldsets = (
+        *UserAdmin.fieldsets,
+        (
+            'Custom Fields',
+            {
+                'fields': (
+                    'user_type',
+                    'phone_number',
+                    'street',
+                    'city',
+                    'zip_code',
+                ),
+            },
+        ),
+    )
+
+
+admin.site.register(User, CustomUserAdmin)
 
 
 class PropertyImageInline(admin.TabularInline):
