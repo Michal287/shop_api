@@ -1,19 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
-
-USER_TYPE_CHOICES = (
-    ('Admin', 'Admin'),
-    ('Seller', 'Seller'),
-    ('Client', 'Client'),
-)
-
-
-class User(AbstractUser):
-    user_type = models.CharField(max_length=40, choices=USER_TYPE_CHOICES, default='Client')
-    phone_number = models.CharField(max_length=12, null=True)
-    street = models.CharField(max_length=32, null=True)
-    city = models.CharField(max_length=32, null=True)
-    zip_code = models.CharField(max_length=8, null=True)
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -65,4 +51,3 @@ class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.CharField(max_length=64, choices=order_status, default="New order")
     product = models.ManyToManyField(Product)
-
